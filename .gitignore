@@ -8,3 +8,9 @@ mlruns/
 mlartifacts/
 data/raw/*
 !data/raw/.gitkeep
+mlflow.db
+mlflow.db-*
+app_before_visual_upgrade.py
+india_housing_prices.csv
+data/processed/
+models/*.joblib
