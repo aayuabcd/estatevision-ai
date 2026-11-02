@@ -3,6 +3,7 @@ import html
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+from src.advisor import render_advisor
 from src.visuals import cinematic_home
 
 st.set_page_config(
@@ -97,7 +98,7 @@ with st.sidebar:
     st.caption("PROPERTY INTELLIGENCE")
     page = st.radio(
         "Explore",
-        ["Overview", "Property Explorer", "Market Intelligence", "Growth Simulator", "Data Quality"]
+        ["Overview", "Property Explorer", "Investment Advisor", "Market Intelligence", "Growth Simulator", "Data Quality"]
     )
     st.divider()
     st.caption("Developed by Aayushi Suryawanshi")
@@ -199,6 +200,9 @@ elif page == "Property Explorer":
             "estatevision_filtered.csv",
             "text/csv"
         )
+
+elif page == "Investment Advisor":
+    render_advisor(df)
 
 elif page == "Market Intelligence":
     st.title("The market, in perspective.")
