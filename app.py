@@ -3,6 +3,7 @@ import html
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+from src.eda import render_eda
 from src.advisor import render_advisor
 from src.visuals import cinematic_home
 
@@ -98,7 +99,7 @@ with st.sidebar:
     st.caption("PROPERTY INTELLIGENCE")
     page = st.radio(
         "Explore",
-        ["Overview", "Property Explorer", "Investment Advisor", "Market Intelligence", "Growth Simulator", "Data Quality"]
+        ["Overview", "Property Explorer", "Investment Advisor", "Market Intelligence", "Growth Simulator", "EDA Lab", "Data Quality"]
     )
     st.divider()
     st.caption("Developed by Aayushi Suryawanshi")
@@ -140,7 +141,7 @@ Compare asking prices, amenities, and neighbourhood indicators.
 **Explore future scenarios**  
 Adjust a growth assumption and see its five-year effect.
 """)
-        st.info("Model predictions and evaluation will be added after training. The simulator currently uses a transparent compound-growth calculation.")
+        st.info("Open Investment Advisor for trained model screening and evaluation. Growth Simulator uses a transparent compound-growth calculation.")
 
 elif page == "Property Explorer":
     st.title("Find a place. See the possibilities.")
@@ -203,6 +204,9 @@ elif page == "Property Explorer":
 
 elif page == "Investment Advisor":
     render_advisor(df)
+
+elif page == "EDA Lab":
+    render_eda(df)
 
 elif page == "Market Intelligence":
     st.title("The market, in perspective.")
